@@ -5,8 +5,8 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     description = models.TextField()
-    content = models.TextField()  # For full book text or sample
-    buy_link = models.URLField(blank=True, null=True)  # Added field for Amazon or other external link
+    content = models.TextField() 
+    buy_link = models.URLField(blank=True, null=True)  
     uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
