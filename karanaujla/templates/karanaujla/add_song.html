@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add New Song</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            padding: 40px;
+            background-color: #000;
+            color: #FFD700;
+        }
+
+        form {
+            width: 60%;
+            margin: auto;
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #FFD700;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            background-color: #333;
+            color: #FFD700;
+            border: 1px solid #FFD700;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e6c200;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Add New Song</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <label>Title:</label>
+    <input type="text" name="title" required>
+
+    <label>Album:</label>
+    <input type="text" name="album">
+
+    <label>Release date:</label>
+    <input type="date" name="release_date" required>
+
+    <label>Views:</label>
+    <input type="number" name="views" value="0">
+
+    <label>Lyrics:</label>
+    <textarea name="lyrics" rows="10" required></textarea>
+
+    <button type="submit">Add Song</button>
+</form>
+
+</body>
+</html>

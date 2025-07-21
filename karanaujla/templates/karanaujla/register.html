@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join Literary Lounge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --cream: #f5f1e6;
+            --paper: #f8f4e8;
+            --coffee: #6f4e37;
+            --mahogany: #4e3524;
+            --ink: #2a2118;
+            --accent: #a78a7f;
+            --radius: 12px;
+            --shadow: 0 8px 24px rgba(74, 55, 41, 0.12);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: 
+                linear-gradient(rgba(245, 241, 230, 0.9), rgba(243, 233, 220, 0.9)),
+                url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path fill="%23a78a7f" fill-opacity="0.03" d="M30,10 Q50,5 70,10 Q95,15 90,40 Q85,65 70,80 Q50,95 30,80 Q15,65 10,40 Q5,15 30,10 Z"/></svg>');
+            background-size: 200px;
+            color: var(--ink);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.6;
+        }
+
+        .register-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+            background: var(--paper);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(111, 78, 55, 0.1);
+        }
+
+        .register-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(to right, var(--mahogany), var(--coffee));
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            text-align: center;
+            color: var(--mahogany);
+            font-size: 2.5rem;
+            margin: 0 0 30px 0;
+            font-weight: 700;
+            position: relative;
+        }
+
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--coffee);
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 14px 20px 14px 45px;
+            border: 1px solid rgba(111, 78, 55, 0.2);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            background: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(167, 138, 127, 0.2);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 38px;
+            color: var(--accent);
+        }
+
+        button {
+            padding: 14px;
+            font-size: 1rem;
+            border-radius: var(--radius);
+            border: none;
+            background-color: var(--coffee);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            margin-top: 10px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button:hover {
+            background-color: var(--mahogany);
+            transform: translateY(-2px);
+        }
+
+        button i {
+            margin-right: 8px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            color: var(--coffee);
+            font-size: 0.95rem;
+        }
+
+        .login-link a {
+            color: var(--mahogany);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 1px dashed var(--accent);
+        }
+
+        .login-link a:hover {
+            color: var(--coffee);
+            border-bottom: 1px solid var(--coffee);
+        }
+
+        .password-requirements {
+            font-size: 0.8rem;
+            color: var(--coffee);
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 480px) {
+            .register-container {
+                padding: 30px 20px;
+                margin: 0 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h1>Join Our Library</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <i class="fas fa-user input-icon"></i>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <i class="fas fa-envelope input-icon"></i>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="password" name="password" required>
+                <p class="password-requirements">Minimum 8 characters with at least one number</p>
+            </div>
+
+            <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <i class="fas fa-lock input-icon"></i>
+                <input type="password" id="password2" name="password2" required>
+            </div>
+
+            <button type="submit">
+                <i class="fas fa-user-plus"></i> Create Account
+            </button>
+        </form>
+        <div class="login-link">
+            <p>Already a member? <a href="{% url 'login' %}">Sign in here</a></p>
+        </div>
+    </div>
+</body>
+</html>
