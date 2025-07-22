@@ -23,8 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-s2sr5rbp23l9vm)l%dhrgj)v!j(dvh$$sa5*t^8#x8p5jmc1i^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ['bookshelf-1-hy01.onrender.com']
+DEBUG = False
+ALLOWED_HOSTS = ['bookshelf-1-hy01.onrender.com', 'bookshelf1.store', 'www.bookshelf1.store']
+
 
 
 
