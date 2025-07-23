@@ -31,6 +31,10 @@ Bookshelf is a full-stack Django-based web application that allows users to expl
  🖼️ Live Preview
 
  Homepage Screenshot
+<img width="1920" height="1080" alt="Screenshot 2025-07-23 130637" src="https://github.com/user-attachments/assets/bd3a5c31-0948-48ff-acad-a025d1d0c9f3" />
+<img width="1920" height="1080" alt="Screenshot 2025-07-23 130648" src="https://github.com/user-attachments/assets/9e219558-ff99-43c2-9a95-0a8237ba9b0b" />
+<img width="1920" height="1080" alt="Screenshot 2025-07-23 130707" src="https://github.com/user-attachments/assets/5e65833e-fcb1-42fc-bea8-d71481a05044" />
+<img width="1920" height="1080" alt="Screenshot 2025-07-23 130659" src="https://github.com/user-attachments/assets/3978efa3-0e15-4e42-82da-854e6c7eeaa6" />
 
 
 > *(Ensure the screenshot exists at the above URL or update it based on where you host the image.)*
